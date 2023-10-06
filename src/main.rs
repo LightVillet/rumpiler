@@ -1,7 +1,7 @@
 mod compiler;
 
 use crate::compiler::tokenizer::*;
-use crate::compiler::lr::*;
+use crate::compiler::ast::*;
 
 fn main() {
     let code = "int main() {

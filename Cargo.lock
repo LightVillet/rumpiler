@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "compiler"
+name = "rumpiler"
 version = "0.1.0"
