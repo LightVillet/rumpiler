@@ -94,7 +94,7 @@ pub fn tokenize(code : &str) -> Vec<Token> {
                 "return" => tokens.push(Keyword(KeywordName::Return)),
                 state if state.chars().nth(0).unwrap().is_alphabetic() => tokens.push(Identifier(state.to_string())),
                 state if state.chars().nth(0).unwrap().is_numeric() => tokens.push(IntegerLiteral(FromStr::from_str(state).unwrap())),
-                _ => {println!("PIZDEC STATE: {}", state); todo!()},
+                _ => todo!(),
             }
             state = "".to_string();
             

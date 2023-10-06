@@ -115,9 +115,9 @@ fn parse_exp(tokens: Vec<Token>) -> Option<Node> {
                 Some(Node{ value_type: NonLiteral(Expression), .. }) => {
                     return Some(Node{ value_type: NonLiteral(Expression), children: vec![un, sub_exp.unwrap()] });
                 }
-                _ => { println!("Em"); return None},
+                _ => return None,
             }
         }
-        _ => {println!("Em2"); return None},
+        _ => return None,
     }
 }
