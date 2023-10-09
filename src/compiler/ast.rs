@@ -1,26 +1,28 @@
 use std::fmt;
 
 use crate::compiler::tokenizer::*;
-use crate::Token::*;
+use crate::compiler::tokenizer::Token::*;
 use ValueType::*;
 use NonLiteralName::*;
 
-
-enum NonLiteralName {
+#[derive(Clone)]
+pub enum NonLiteralName {
     Program,
     Function,
     Statement,
     Expression,
 }
 
-enum ValueType {
+#[derive(Clone)]
+pub enum ValueType {
     NonLiteral(NonLiteralName),
     Literal(Token),
 }
 
+#[derive(Clone)]
 pub struct Node {
-    value_type: ValueType,
-    children: Vec<Node>,
+    pub value_type: ValueType,
+    pub children: Vec<Node>,
 }
 
 impl fmt::Display for Node {
