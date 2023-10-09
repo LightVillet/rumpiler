@@ -9,7 +9,7 @@ pub fn generate_asm(node: Node) -> Option<String> {
         NonLiteral(Program) => return generate_asm(node.children[0].clone()),
         NonLiteral(Function) => {
             match node.children[1].clone().value_type {
-                Literal(Identifier(name)) => return Some(format!(".globl _{name}\n_{name}:\n{code}",
+                Literal(Identifier(name)) => return Some(format!(".globl {name}\n{name}:\n{code}",
                                                                          code = (generate_asm(node.children[5].clone()).unwrap()))),
                 _ => return None,
             };
