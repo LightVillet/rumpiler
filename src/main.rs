@@ -19,7 +19,9 @@ fn main() {
     let asm_path = format!("{out_path}.s");
     let mut file = std::fs::File::create(asm_path.as_str()).unwrap();
     let _res = file.write_all(asm.as_bytes());
-    let _command = Command::new("gcc").args(["-m32", asm_path.as_str(), "-o", out_path.as_str()]).spawn();
+    let mut command = Command::new("gcc").args(["-m32", asm_path.as_str(), "-o", out_path.as_str()]).spawn().unwrap();
+    let _result = command.wait().unwrap();
+    let _rmv = std::fs::remove_file(asm_path.as_str());
     println!("Done!");
     return();
 }
