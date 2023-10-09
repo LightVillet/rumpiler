@@ -1,6 +1,6 @@
 use std::fmt;
 
-use crate::Token::*;
+use crate::compiler::tokenizer::Token::*;
 use std::str::FromStr;
 
 
@@ -80,7 +80,7 @@ fn is_ending(c: char) -> bool {
 
 type State = String;
 
-pub fn tokenize(code : &str) -> Vec<Token> {
+pub fn tokenize(code : String) -> Vec<Token> {
     let mut tokens = vec![];
     let mut state: State = "".to_string();
     for symbol in code.chars() {
